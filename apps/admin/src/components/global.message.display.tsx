@@ -1,7 +1,7 @@
 import { Alert, Fade, Snackbar } from "@mui/material";
 import { useContext, useEffect, useState } from "react";
 import GlobalMessageContext from "src/context/globalMessage.context";
-import { NOTIFICATION_TIMEOUT_MS } from "../config";
+import { NOTIFICATION_TIMEOUT_MS } from "src/config";
 
 import _ from 'lodash';
 

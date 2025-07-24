@@ -12,7 +12,7 @@ import {
   NN_INSTRUMENT_KEY,
   NN_OTHER_KEY,
   ProductTypePrefix,
-} from "../config";
+} from "src/config";
 import _ from "lodash";
 
 export const getProducts = async (

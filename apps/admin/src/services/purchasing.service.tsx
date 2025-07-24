@@ -8,7 +8,7 @@ import {
   PurchaseOrderState
 } from "@amm/types";
 
-import { NEXT_NUMBER_API, NN_PO_KEY, PURCHASING_API } from "../config";
+import { NEXT_NUMBER_API, NN_PO_KEY, PURCHASING_API } from "src/config";
 
 import _ from "lodash";
 import { getProductWithVariantGuid } from "./product.service";

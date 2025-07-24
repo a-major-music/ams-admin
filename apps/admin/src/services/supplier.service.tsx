@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { SUPPLIERS_API } from "../config";
+import { SUPPLIERS_API } from "src/config";
 
 export const getSuppliers = async (
   options: { skip?: number; take?: number, orderBy?: { field: string, dir: string } },
