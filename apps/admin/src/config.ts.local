@@ -1,0 +1,39 @@
+// This file is used by Nest Config to set up environment variables. This file is the local vesrion. The staged and prod version are named
+// .prd and .stg respectively, and are copied over this one during the build, as defined in the project level .github/workdlows/deploy.yml file.
+import { ProductType } from "@amm/types";
+import axios from "axios";
+
+export const INV_API = "http://localhost:3000/products/";
+export const LOCS_API = "http://localhost:3000/locations/";
+export const STOCKTAKE_API = "http://localhost:3000/stocktake/";
+export const PURCHASING_API = "http://localhost:3001/purchasing/";
+export const SUPPLIERS_API = "http://localhost:3001/supplier/";
+export const NEXT_NUMBER_API = "http://localhost:3002/next-number/";
+export const AUDIT_EVENT_API = "http://localhost:3002/audit-event/";
+export const CUSTOM_SALE_API = "http://localhost:3002/custom-sale/";
+
+export const SHOPIFY_URL = "https://a-major-music-test.myshopify.com";
+
+export const NOTIFICATION_TIMEOUT_MS = 10000;
+export const NN_PO_KEY = "po.number";
+export const NN_BOOK_KEY = "sku.book";
+export const NN_ACCESSORY_KEY = "sku.accessory";
+export const NN_GIFT_KEY = "sku.gift";
+export const NN_INSTRUMENT_KEY = "sku.instrument";
+export const NN_OTHER_KEY = "sku.other";
+
+export const ProductTypePrefix = {
+    [ProductType.BOOK]: "BOK",
+    [ProductType.GIFT]: "GFT",
+    [ProductType.ACCESSORY]: "ACC",
+    [ProductType.INSTRUMENT]: "INS",
+    [ProductType.OTHER]: "OTH",
+  };  
+
+export const MISSING_PRODUCT_IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
+
+export const VAT_RATE = 20;
+
+// Provide the required api key for axios calls here so it affects them all. This only works because all services use the same key
+export const API_KEY = "YTljODgzOWUtMTAxOS00YzU3LWFlMTktZTdiMDBmZDYzMDhmCg==";
+axios.defaults.headers.common['X-API-KEY'] = API_KEY;

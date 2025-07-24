@@ -1,0 +1,5 @@
+
+> @amm/admin@0.1.0 test
+> echo "Error: no test specified" && exit 0; react-scripts test --watchAll=false
+
+Error: no test specified

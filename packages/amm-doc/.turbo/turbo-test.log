@@ -1,0 +1,16 @@
+
+> @amm/amm-doc@1.0.0 test
+> jest
+
+ts-jest[versions] (WARN) Version 5.8.3 of typescript installed has not been tested with ts-jest. If you're experiencing issues, consider using a supported version (>=3.8.0 <5.0.0-0). Please do not report issues in ts-jest if you are using unsupported versions.
+ts-jest[versions] (WARN) Version 5.8.3 of typescript installed has not been tested with ts-jest. If you're experiencing issues, consider using a supported version (>=3.8.0 <5.0.0-0). Please do not report issues in ts-jest if you are using unsupported versions.
+ts-jest[versions] (WARN) Version 5.8.3 of typescript installed has not been tested with ts-jest. If you're experiencing issues, consider using a supported version (>=3.8.0 <5.0.0-0). Please do not report issues in ts-jest if you are using unsupported versions.
+PASS src/services/amm-doc-title.service.spec.ts (5.522 s)
+PASS src/services/amm-doc-logo.service.spec.ts (5.804 s)
+PASS src/services/amm-doc-list.service.spec.ts (5.834 s)
+
+Test Suites: 3 passed, 3 total
+Tests:       5 passed, 5 total
+Snapshots:   0 total
+Time:        6.315 s
+Ran all test suites.

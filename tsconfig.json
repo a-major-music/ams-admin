@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    /* Basic Options */
+    "target": "es2017",
+    "module": "commonjs",
+    "lib": ["ESNext"],
+    "jsx": "preserve",
+    "allowJs": false,
+
+    /* Strict Type-Checking Options */
+    "strict": true,
+
+    /* Module Resolution Options */
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+
+    /* Advanced Options */
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}

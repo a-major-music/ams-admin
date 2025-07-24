@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Used to hold the next number in a sequence, for things like Purchase Orders and Product SKUs. 
+model NextNumber {
+  id    Int    @id @default(autoincrement())
+  name  String @unique
+  value Int
+}
+
+model AuditEvent {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  eventType String
+  sourceId  String? // Used to hold the ID of a source, if relevant
+  targetId  String? // Used to hold the ID of a target, if relevant
+  data      String? // Freetext field to hold additional data
+
+  @@index([sourceId])
+}
+
+// Used to hold flagged custom sale items until they've been resolved in the admin app
+model CustomSale {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  orderURL  String
+  title     String
+}
+
+// Holds "ignored" custom sale items, which are acceptable
+model CustomSaleIgnoreList {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  title     String @unique
+
+  @@index([title])
+}

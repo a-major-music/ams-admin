@@ -1,0 +1,13 @@
+
+> @amm/amm-doc@1.0.0 prebuild
+> rimraf dist
+
+
+> @amm/amm-doc@1.0.0 build
+> nest build && npm run copy-files
+
+DeprecationWarning: 'getMutableClone' has been deprecated since v4.0.0. Use an appropriate `factory.update...` method instead, use `setCommentRange` or `setSourceMapRange`, and avoid setting `parent`.
+
+> @amm/amm-doc@1.0.0 copy-files
+> copyfiles src/**/*.otf src/**/*.png dist
+

@@ -1,0 +1,10 @@
+node_modules
+*.db-journal
+.DS_Store
+yarn-error.log
+package-lock.json
+docker-compose/data
+**/coverage/*
+**/dist/*
+**/.env*
+tools/*

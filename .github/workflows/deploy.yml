@@ -1,0 +1,75 @@
+
+name: CI
+
+on: 
+  push: 
+    branches:
+      # - staged - Staging environment temporarily removed to save cost
+      - main
+
+jobs:
+  build:
+    name: Deploy AMS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set env to staging (staged)
+        if: endsWith(github.ref, '/staged')
+        run: |
+          echo "BUCKET=ams-admin-stg" >> $GITHUB_ENV
+          echo "HEROKU_SUFFIX=stg" >> $GITHUB_ENV
+
+      - name: Set env to production (main)     
+        if: endsWith(github.ref, '/main')
+        run: |
+          echo "BUCKET=ams-admin-prod" >> $GITHUB_ENV
+          echo "HEROKU_SUFFIX=prod" >> $GITHUB_ENV
+
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+
+      - name: Build (Admin)
+        run: |
+          cd apps/admin
+          cp src/config.ts.$HEROKU_SUFFIX src/config.ts
+          yarn
+          CI=false yarn build
+              
+      - name: Configure AWS credentials (Admin)
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_KEY_SECRET }}
+          aws-region: "eu-west-2"
+
+      - name: Deploy to AWS S3 (Admin)
+        run: |
+          aws s3 rm s3://$BUCKET --recursive
+          pwd
+          aws s3 cp apps/admin/build/ s3://$BUCKET/ --recursive
+
+      - name: Install Heroku CLI
+        run: curl https://cli-assets.heroku.com/install.sh | sh 
+
+      - name: Deploy to Heroku (Common)
+        uses: AkhileshNS/heroku-deploy@v3.13.15
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "ams-common-$HEROKU_SUFFIX"
+          heroku_email: "roger@softfox.com"
+
+      - name: Deploy to Heroku (Inventory)
+        uses: AkhileshNS/heroku-deploy@v3.13.15
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "ams-inventory-$HEROKU_SUFFIX"
+          heroku_email: "roger@softfox.com"
+      
+      - name: Deploy to Heroku (Purchasing)
+        uses: AkhileshNS/heroku-deploy@v3.13.15
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "ams-purchasing-$HEROKU_SUFFIX"
+          heroku_email: "roger@softfox.com"

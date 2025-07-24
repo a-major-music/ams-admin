@@ -1,0 +1,49 @@
+version: "3.9"
+services:
+
+  ams-common:
+    image: ams-common
+    ports:
+      - "3002:3002"
+    environment:
+      - "DATABASE_URL=postgresql://postgres:postgres@postgres:5432/common?schema=public"
+      - PORT=3002
+    depends_on:
+      - postgres
+    links:
+      - postgres
+
+  ams-inventory:
+    image: ams-inventory
+    ports:
+      - "3000:3000"
+    environment:
+      - "DATABASE_URL=postgresql://postgres:postgres@postgres:5432/inventory?schema=public"
+      - PORT=3000
+    depends_on:
+      - postgres
+    links:
+      - postgres
+
+  ams-purchasing:
+    image: ams-purchasing
+    ports:
+      - "3001:3001"
+    environment:
+      - "DATABASE_URL=postgresql://postgres:postgres@postgres:5432/purchasing?schema=public"
+      - PORT=3001
+    depends_on:
+      - postgres
+    links:
+      - postgres
+
+  postgres:
+    image: postgres:14.1-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '5432:5432'
+    volumes: 
+      - ./data/db:/var/lib/postgresql/data

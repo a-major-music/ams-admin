@@ -1,0 +1,1844 @@
+{
+    "name": "New PO (Prod)",
+    "flow": [
+        {
+            "id": 1,
+            "module": "gateway:CustomWebHook",
+            "version": 1,
+            "parameters": {
+                "hook": 2093027,
+                "maxResults": 1
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": -496,
+                    "y": -393
+                },
+                "restore": {
+                    "parameters": {
+                        "hook": {
+                            "data": {
+                                "editable": "true"
+                            },
+                            "label": "New PO"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "hook",
+                        "type": "hook:gateway-webhook",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "maxResults",
+                        "type": "number",
+                        "label": "Maximum number of results"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "id",
+                        "type": "number"
+                    },
+                    {
+                        "name": "guid",
+                        "type": "text"
+                    },
+                    {
+                        "name": "number",
+                        "type": "text"
+                    },
+                    {
+                        "name": "state",
+                        "type": "text"
+                    },
+                    {
+                        "name": "issueDate",
+                        "type": "text"
+                    },
+                    {
+                        "name": "pendingXero",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "subTotal",
+                        "type": "number"
+                    },
+                    {
+                        "name": "taxAmount",
+                        "type": "number"
+                    },
+                    {
+                        "name": "total",
+                        "type": "number"
+                    },
+                    {
+                        "name": "supplierId",
+                        "type": "number"
+                    },
+                    {
+                        "name": "lineItems",
+                        "spec": {
+                            "spec": [
+                                {
+                                    "name": "id",
+                                    "type": "number"
+                                },
+                                {
+                                    "name": "guid",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "variantSku",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "variantGuid",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "variantUPC",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "variantSupplierCode",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "variantTaxRate",
+                                    "type": "number"
+                                },
+                                {
+                                    "name": "description",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "variantMediaURI",
+                                    "type": "text"
+                                },
+                                {
+                                    "name": "itemCost",
+                                    "type": "number"
+                                },
+                                {
+                                    "name": "quantityOrdered",
+                                    "type": "number"
+                                },
+                                {
+                                    "name": "packSize",
+                                    "type": "number"
+                                },
+                                {
+                                    "name": "purchaseOrderId",
+                                    "type": "number"
+                                },
+                                {
+                                    "name": "receipts",
+                                    "type": "array"
+                                }
+                            ],
+                            "type": "collection"
+                        },
+                        "type": "array"
+                    },
+                    {
+                        "name": "supplier",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "number"
+                            },
+                            {
+                                "name": "guid",
+                                "type": "text"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text"
+                            },
+                            {
+                                "name": "website",
+                                "type": "text"
+                            },
+                            {
+                                "name": "contacts",
+                                "spec": {
+                                    "spec": [
+                                        {
+                                            "name": "id",
+                                            "type": "number"
+                                        },
+                                        {
+                                            "name": "guid",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "name",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "email",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "phone",
+                                            "type": "text"
+                                        },
+                                        {
+                                            "name": "supplierId",
+                                            "type": "number"
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array"
+                            },
+                            {
+                                "name": "address",
+                                "spec": [
+                                    {
+                                        "name": "id",
+                                        "type": "number"
+                                    },
+                                    {
+                                        "name": "guid",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "address1",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "address2",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "address3",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "city",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "postcode",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "supplierId",
+                                        "type": "number"
+                                    }
+                                ],
+                                "type": "collection"
+                            }
+                        ],
+                        "type": "collection"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 4,
+            "module": "xero:SearchForContact",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 516538
+            },
+            "mapper": {
+                "tenantId": "df6d5ed8-384b-4e34-ac74-e328df1f6438",
+                "limit": "1",
+                "includeArchived": false,
+                "summaryOnly": false,
+                "type": "field",
+                "filter": [
+                    [
+                        {
+                            "a": "Name",
+                            "o": "text:equals",
+                            "b": "{{1.supplier.name}}"
+                        }
+                    ]
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": -180,
+                    "y": -395
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "label": "Xero",
+                            "data": {
+                                "scoped": "true",
+                                "connection": "xero3"
+                            }
+                        }
+                    },
+                    "expect": {
+                        "tenantId": {
+                            "mode": "chose",
+                            "label": "A Major Music"
+                        },
+                        "includeArchived": {
+                            "mode": "chose"
+                        },
+                        "summaryOnly": {
+                            "mode": "chose"
+                        },
+                        "type": {
+                            "mode": "chose",
+                            "label": "Pre-defined Filter"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:xero3",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "tenantId",
+                        "type": "select",
+                        "label": "Organization"
+                    },
+                    {
+                        "name": "order",
+                        "type": "text",
+                        "label": "Order By"
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit",
+                        "required": true
+                    },
+                    {
+                        "name": "searchTerm",
+                        "type": "text",
+                        "label": "Search Term"
+                    },
+                    {
+                        "name": "IDs",
+                        "type": "text",
+                        "label": "Contact IDs"
+                    },
+                    {
+                        "name": "ModifiedAfter",
+                        "type": "date",
+                        "label": "Modified After"
+                    },
+                    {
+                        "name": "includeArchived",
+                        "type": "boolean",
+                        "label": "Include Archived",
+                        "required": true
+                    },
+                    {
+                        "name": "summaryOnly",
+                        "type": "boolean",
+                        "label": "Summary Only",
+                        "required": true
+                    },
+                    {
+                        "name": "type",
+                        "type": "select",
+                        "label": "Search by",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "field",
+                                "query"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "type": "filter",
+                        "label": "Filter",
+                        "options": {
+                            "logic": "and",
+                            "store": [
+                                {
+                                    "label": "Email address",
+                                    "value": "EmailAddress"
+                                },
+                                {
+                                    "label": "Name",
+                                    "value": "Name"
+                                },
+                                {
+                                    "label": "Account number",
+                                    "value": "AccountNumber"
+                                }
+                            ],
+                            "operators": [
+                                {
+                                    "label": "Text",
+                                    "options": [
+                                        {
+                                            "label": "Equals",
+                                            "short": "=",
+                                            "value": "text:equals"
+                                        },
+                                        {
+                                            "label": "Not equals",
+                                            "short": "!=",
+                                            "value": "text:notEquals"
+                                        },
+                                        {
+                                            "label": "Starts with",
+                                            "short": "text:startsWith",
+                                            "value": "text:startsWith"
+                                        },
+                                        {
+                                            "label": "Ends with",
+                                            "short": "text:endsWith",
+                                            "value": "text:endsWith"
+                                        },
+                                        {
+                                            "label": "Contains",
+                                            "short": "text:contains",
+                                            "value": "text:contains"
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "id": 14,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 157,
+                    "y": -394
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 18,
+                            "module": "util:SetVariable2",
+                            "version": 1,
+                            "parameters": {},
+                            "filter": {
+                                "name": "Supplier Exists",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{4.ContactID}}",
+                                            "b": "",
+                                            "o": "text:notequal:ci"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "name": "contactId",
+                                "scope": "roundtrip",
+                                "value": "{{4.ContactID}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 501,
+                                    "y": -396
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "scope": {
+                                            "label": "One cycle"
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Variable name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "scope",
+                                        "type": "select",
+                                        "label": "Variable lifetime",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "roundtrip",
+                                                "execution"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "any",
+                                        "label": "Variable value"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "contactId",
+                                        "type": "any",
+                                        "label": "contactId"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 15,
+                            "module": "xero:CreateContact",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 516538
+                            },
+                            "filter": {
+                                "name": "Supplier Does Not Exist",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{4.ContactID}}",
+                                            "b": "",
+                                            "o": "text:equal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "tenantId": "df6d5ed8-384b-4e34-ac74-e328df1f6438",
+                                "Name": "{{1.supplier.name}}",
+                                "EmailAddress": "{{1.supplier.contacts[].email}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 152,
+                                    "y": -62
+                                },
+                                "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "label": "Xero",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "xero3"
+                                            }
+                                        }
+                                    },
+                                    "expect": {
+                                        "tenantId": {
+                                            "mode": "chose",
+                                            "label": "A Major Music"
+                                        },
+                                        "ContactPersons": {
+                                            "mode": "chose"
+                                        },
+                                        "AccountsReceivableTaxType": {
+                                            "mode": "chose"
+                                        },
+                                        "AccountsPayableTaxType": {
+                                            "mode": "chose"
+                                        },
+                                        "Addresses": {
+                                            "mode": "chose"
+                                        },
+                                        "Phones": {
+                                            "mode": "chose"
+                                        },
+                                        "DefaultCurrency": {
+                                            "mode": "chose"
+                                        },
+                                        "SalesDefaultAccountCode": {
+                                            "mode": "chose"
+                                        },
+                                        "PurchasesDefaultAccountCode": {
+                                            "mode": "chose"
+                                        },
+                                        "PaymentTerms": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:xero3",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "tenantId",
+                                        "type": "select",
+                                        "label": "Organization",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "Name",
+                                        "type": "text",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "ContactNumber",
+                                        "type": "text",
+                                        "label": "Contact number"
+                                    },
+                                    {
+                                        "name": "AccountNumber",
+                                        "type": "text",
+                                        "label": "Account number"
+                                    },
+                                    {
+                                        "name": "FirstName",
+                                        "type": "text",
+                                        "label": "First name"
+                                    },
+                                    {
+                                        "name": "LastName",
+                                        "type": "text",
+                                        "label": "Last name"
+                                    },
+                                    {
+                                        "name": "EmailAddress",
+                                        "type": "email",
+                                        "label": "Email"
+                                    },
+                                    {
+                                        "name": "SkypeUserName",
+                                        "type": "text",
+                                        "label": "Skype"
+                                    },
+                                    {
+                                        "name": "ContactPersons",
+                                        "type": "array",
+                                        "label": "Contact persons",
+                                        "spec": [
+                                            {
+                                                "name": "FirstName",
+                                                "type": "text",
+                                                "label": "First name"
+                                            },
+                                            {
+                                                "name": "LastName",
+                                                "type": "text",
+                                                "label": "Last name"
+                                            },
+                                            {
+                                                "name": "EmailAddress",
+                                                "type": "email",
+                                                "label": "Email"
+                                            },
+                                            {
+                                                "name": "IncludeInEmails",
+                                                "type": "boolean",
+                                                "label": "Include in emails"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "BankAccountDetails",
+                                        "type": "text",
+                                        "label": "Bank account details"
+                                    },
+                                    {
+                                        "name": "CompanyNumber",
+                                        "type": "text",
+                                        "label": "Company Number",
+                                        "validate": {
+                                            "max": 50
+                                        }
+                                    },
+                                    {
+                                        "name": "TaxNumber",
+                                        "type": "text",
+                                        "label": "Tax number"
+                                    },
+                                    {
+                                        "name": "AccountsReceivableTaxType",
+                                        "type": "select",
+                                        "label": "Accounts receivable tax type"
+                                    },
+                                    {
+                                        "name": "AccountsPayableTaxType",
+                                        "type": "select",
+                                        "label": "Accounts payable tax type"
+                                    },
+                                    {
+                                        "name": "Addresses",
+                                        "type": "array",
+                                        "spec": [
+                                            {
+                                                "name": "AddressType",
+                                                "type": "select",
+                                                "label": "Type",
+                                                "options": [
+                                                    {
+                                                        "label": "Street",
+                                                        "value": "STREET",
+                                                        "default": true
+                                                    },
+                                                    {
+                                                        "label": "POBOX",
+                                                        "value": "POBOX"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "AddressLine1",
+                                                "type": "text",
+                                                "label": "Adress line 1"
+                                            },
+                                            {
+                                                "name": "AddressLine2",
+                                                "type": "text",
+                                                "label": "Adress line 2"
+                                            },
+                                            {
+                                                "name": "AddressLine3",
+                                                "type": "text",
+                                                "label": "Adress line 3"
+                                            },
+                                            {
+                                                "name": "AddressLine4",
+                                                "type": "text",
+                                                "label": "Adress line 4"
+                                            },
+                                            {
+                                                "name": "City",
+                                                "type": "text",
+                                                "label": "City"
+                                            },
+                                            {
+                                                "name": "Region",
+                                                "type": "text",
+                                                "label": "Region"
+                                            },
+                                            {
+                                                "name": "PostalCode",
+                                                "type": "text",
+                                                "label": "Postal code"
+                                            },
+                                            {
+                                                "name": "Country",
+                                                "type": "text",
+                                                "label": "Country"
+                                            },
+                                            {
+                                                "name": "AttentionTo",
+                                                "type": "text",
+                                                "label": "Attention to"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Phones",
+                                        "type": "array",
+                                        "spec": [
+                                            {
+                                                "name": "PhoneType",
+                                                "type": "select",
+                                                "label": "Type",
+                                                "options": [
+                                                    {
+                                                        "label": "DEFAULT",
+                                                        "value": "DEFAULT",
+                                                        "default": true
+                                                    },
+                                                    {
+                                                        "label": "MOBILE",
+                                                        "value": "MOBILE"
+                                                    },
+                                                    {
+                                                        "label": "FAX",
+                                                        "value": "FAX"
+                                                    },
+                                                    {
+                                                        "label": "DDI",
+                                                        "value": "DDI"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "PhoneNumber",
+                                                "type": "text",
+                                                "label": "Number"
+                                            },
+                                            {
+                                                "name": "PhoneAreaCode",
+                                                "type": "text",
+                                                "label": "Area code"
+                                            },
+                                            {
+                                                "name": "PhoneCountryCode",
+                                                "type": "text",
+                                                "label": "Country code"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "DefaultCurrency",
+                                        "type": "select",
+                                        "label": "Default currency"
+                                    },
+                                    {
+                                        "name": "XeroNetworkKey",
+                                        "type": "text",
+                                        "label": "Xero network key"
+                                    },
+                                    {
+                                        "name": "SalesDefaultAccountCode",
+                                        "type": "select",
+                                        "label": "Sales default account"
+                                    },
+                                    {
+                                        "name": "PurchasesDefaultAccountCode",
+                                        "type": "select",
+                                        "label": "Purchases default account"
+                                    },
+                                    {
+                                        "name": "PaymentTerms",
+                                        "type": "select",
+                                        "label": "Payment terms",
+                                        "validate": {
+                                            "enum": [
+                                                "DAYSAFTERBILLDATE",
+                                                "DAYSAFTERBILLMONTH",
+                                                "OFCURRENTMONTH",
+                                                "OFFOLLOWINGMONTH"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "advanced": true
+                            }
+                        },
+                        {
+                            "id": 17,
+                            "module": "util:SetVariable2",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "name": "contactId",
+                                "scope": "roundtrip",
+                                "value": "{{15.ContactID}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 508,
+                                    "y": -68
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "scope": {
+                                            "label": "One cycle"
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Variable name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "scope",
+                                        "type": "select",
+                                        "label": "Variable lifetime",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "roundtrip",
+                                                "execution"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "any",
+                                        "label": "Variable value"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "contactId",
+                                        "type": "any",
+                                        "label": "contactId"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 33,
+                            "module": "util:SetVariable2",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "name": "status",
+                                "scope": "roundtrip",
+                                "value": "{{switch(1.state; \"active\"; \"AUTHORISED\"; \"DRAFT\")}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 169,
+                                    "y": -676
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "scope": {
+                                            "label": "One cycle"
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Variable name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "scope",
+                                        "type": "select",
+                                        "label": "Variable lifetime",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "roundtrip",
+                                                "execution"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "any",
+                                        "label": "Variable value"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "status",
+                                        "type": "any",
+                                        "label": "status"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 35,
+                            "module": "util:GetVariables",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "variables": [
+                                    "contactId",
+                                    "status"
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 187,
+                                    "y": -973
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "variables": {
+                                            "items": [
+                                                null,
+                                                null
+                                            ]
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "variables",
+                                        "spec": {
+                                            "name": "value",
+                                            "type": "text",
+                                            "label": "Variable name",
+                                            "required": true
+                                        },
+                                        "type": "array",
+                                        "label": "Variables"
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "contactId",
+                                        "type": "any",
+                                        "label": "contactId"
+                                    },
+                                    {
+                                        "name": "status",
+                                        "type": "any",
+                                        "label": "status"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 6,
+                            "module": "builtin:BasicFeeder",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "array": "{{1.lineItems}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 505,
+                                    "y": -675
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "array": {
+                                            "mode": "edit",
+                                            "items": [
+                                                null
+                                            ]
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "mode": "edit",
+                                        "name": "array",
+                                        "spec": [],
+                                        "type": "array",
+                                        "label": "Array"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 25,
+                            "module": "util:SetVariables",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "scope": "roundtrip",
+                                "variables": [
+                                    {
+                                        "name": "itemCostPounds",
+                                        "value": "{{6.itemCost / 100}}"
+                                    }
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 829,
+                                    "y": -682
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "scope": {
+                                            "label": "One cycle"
+                                        },
+                                        "variables": {
+                                            "items": [
+                                                null
+                                            ]
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "variables",
+                                        "spec": [
+                                            {
+                                                "name": "name",
+                                                "type": "text",
+                                                "label": "Variable name",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "any",
+                                                "label": "Variable value"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Variables"
+                                    },
+                                    {
+                                        "name": "scope",
+                                        "type": "select",
+                                        "label": "Variable lifetime",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "roundtrip",
+                                                "execution"
+                                            ]
+                                        }
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": "itemCostPounds",
+                                        "type": "any",
+                                        "label": "itemCostPounds"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 9,
+                            "module": "builtin:BasicAggregator",
+                            "version": 1,
+                            "parameters": {
+                                "feeder": 6,
+                                "target": "5.LineItems"
+                            },
+                            "mapper": {
+                                "TaxType": "{{switch(6.variantTaxRate; 0; \"NONE\"; \"INPUT2\")}}",
+                                "ItemCode": "",
+                                "Quantity": "{{6.quantityOrdered}}",
+                                "Tracking": [],
+                                "UnitAmount": "{{25.itemCostPounds}}",
+                                "AccountCode": "300",
+                                "Description": "{{6.variantSku}} - {{replace(replace(6.description; \"/[^\\x00-\\x7F]/g\"; ); \"/[\\'\\\"\"\\`]/g\")}}",
+                                "DiscountRate": ""
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1126,
+                                    "y": -681
+                                },
+                                "restore": {
+                                    "extra": {
+                                        "feeder": {
+                                            "label": "Iterator [6]"
+                                        },
+                                        "target": {
+                                            "label": "Line items"
+                                        }
+                                    },
+                                    "expect": {
+                                        "__IMTTARGET__": {
+                                            "nested": {
+                                                "TaxType": {
+                                                    "mode": "edit"
+                                                },
+                                                "ItemCode": {
+                                                    "mode": "chose",
+                                                    "label": "Empty"
+                                                },
+                                                "Tracking": {
+                                                    "mode": "chose"
+                                                },
+                                                "AccountCode": {
+                                                    "mode": "edit"
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "expect": [
+                                    {
+                                        "name": "Description",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "Quantity",
+                                        "type": "number"
+                                    },
+                                    {
+                                        "name": "UnitAmount",
+                                        "type": "number",
+                                        "label": "Unit amount"
+                                    },
+                                    {
+                                        "name": "ItemCode",
+                                        "type": "select",
+                                        "label": "Item"
+                                    },
+                                    {
+                                        "name": "TaxType",
+                                        "type": "select",
+                                        "label": "Tax type"
+                                    },
+                                    {
+                                        "name": "AccountCode",
+                                        "type": "select",
+                                        "label": "Account code"
+                                    },
+                                    {
+                                        "name": "DiscountRate",
+                                        "type": "number",
+                                        "label": "Discount rate"
+                                    },
+                                    {
+                                        "name": "Tracking",
+                                        "spec": [
+                                            {
+                                                "name": "TrackingCategory",
+                                                "type": "select",
+                                                "label": "Name",
+                                                "dynamic": true,
+                                                "options": {
+                                                    "store": []
+                                                }
+                                            }
+                                        ],
+                                        "type": "array"
+                                    }
+                                ],
+                                "advanced": true
+                            },
+                            "flags": {
+                                "groupBy": "{{19.contactId}}"
+                            }
+                        },
+                        {
+                            "id": 34,
+                            "module": "util:GetVariable2",
+                            "version": 1,
+                            "parameters": {},
+                            "mapper": {
+                                "name": "{{33.status}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1424,
+                                    "y": -689
+                                },
+                                "restore": {},
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Variable name",
+                                        "required": true
+                                    }
+                                ],
+                                "interface": [
+                                    {
+                                        "name": null,
+                                        "type": "any",
+                                        "label": null
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 21,
+                            "module": "xero:GetPurchaseOrder",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 516538
+                            },
+                            "mapper": {
+                                "tenantId": "df6d5ed8-384b-4e34-ac74-e328df1f6438",
+                                "id": "{{1.number}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1709,
+                                    "y": -698
+                                },
+                                "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "label": "Xero",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "xero3"
+                                            }
+                                        }
+                                    },
+                                    "expect": {
+                                        "tenantId": {
+                                            "mode": "chose",
+                                            "label": "A Major Music"
+                                        },
+                                        "id": {
+                                            "mode": "edit"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:xero3",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "tenantId",
+                                        "type": "select",
+                                        "label": "Organization",
+                                        "mode": "edit",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "id",
+                                        "type": "select",
+                                        "label": "Purchase Order ID",
+                                        "mode": "edit",
+                                        "required": true
+                                    }
+                                ]
+                            },
+                            "onerror": [
+                                {
+                                    "id": 32,
+                                    "module": "xero:CreatePurchaseOrder",
+                                    "version": 2,
+                                    "parameters": {
+                                        "__IMTCONN__": 516538
+                                    },
+                                    "filter": {
+                                        "name": "404 Handler",
+                                        "conditions": [
+                                            [
+                                                {
+                                                    "a": "{{21.error.type}}",
+                                                    "b": "DataError",
+                                                    "o": "text:equal"
+                                                },
+                                                {
+                                                    "a": "{{21.error.message}}",
+                                                    "b": "[404] \"The resource you're looking for cannot be found\"",
+                                                    "o": "text:equal"
+                                                }
+                                            ]
+                                        ]
+                                    },
+                                    "mapper": {
+                                        "tenantId": "df6d5ed8-384b-4e34-ac74-e328df1f6438",
+                                        "Contact": "{{35.contactId}}",
+                                        "LineItems": "{{9.array}}",
+                                        "LineAmountTypes": "Exclusive",
+                                        "PurchaseOrderNumber": "{{1.number}}",
+                                        "BrandingThemeID": "5d4dd402-c851-497e-aae1-9ff265c0d15a",
+                                        "CurrencyCode": "GBP",
+                                        "Status": "{{33.status}}",
+                                        "DeliveryAddress": "Unit 310, Trentham Shopping Village, Stoke-on-Trent, ST4 8AX",
+                                        "AttentionTo": "Laura Foxcroft",
+                                        "Telephone": "01782 633634"
+                                    },
+                                    "metadata": {
+                                        "designer": {
+                                            "x": 1917,
+                                            "y": -475
+                                        },
+                                        "restore": {
+                                            "parameters": {
+                                                "__IMTCONN__": {
+                                                    "label": "Xero",
+                                                    "data": {
+                                                        "scoped": "true",
+                                                        "connection": "xero3"
+                                                    }
+                                                }
+                                            },
+                                            "expect": {
+                                                "tenantId": {
+                                                    "mode": "chose",
+                                                    "label": "A Major Music"
+                                                },
+                                                "LineItems": {
+                                                    "mode": "edit"
+                                                },
+                                                "LineAmountTypes": {
+                                                    "mode": "chose",
+                                                    "label": "Exclusive"
+                                                },
+                                                "BrandingThemeID": {
+                                                    "mode": "chose",
+                                                    "label": "Standard"
+                                                },
+                                                "CurrencyCode": {
+                                                    "mode": "chose",
+                                                    "label": "British Pound (GBP)"
+                                                },
+                                                "Status": {
+                                                    "mode": "edit"
+                                                },
+                                                "SentToContact": {
+                                                    "mode": "chose"
+                                                }
+                                            }
+                                        },
+                                        "parameters": [
+                                            {
+                                                "name": "__IMTCONN__",
+                                                "type": "account:xero3",
+                                                "label": "Connection",
+                                                "required": true
+                                            }
+                                        ],
+                                        "expect": [
+                                            {
+                                                "name": "tenantId",
+                                                "type": "select",
+                                                "label": "Organization",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "Contact",
+                                                "type": "uuid",
+                                                "label": "Contact ID",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "LineItems",
+                                                "type": "array",
+                                                "label": "Line items",
+                                                "required": true,
+                                                "spec": [
+                                                    {
+                                                        "name": "Description",
+                                                        "type": "text",
+                                                        "label": "Description"
+                                                    },
+                                                    {
+                                                        "name": "Quantity",
+                                                        "type": "number",
+                                                        "label": "Quantity"
+                                                    },
+                                                    {
+                                                        "name": "UnitAmount",
+                                                        "type": "number",
+                                                        "label": "Unit amount"
+                                                    },
+                                                    {
+                                                        "name": "ItemCode",
+                                                        "type": "select",
+                                                        "label": "Item",
+                                                        "options": [],
+                                                        "dynamic": true
+                                                    },
+                                                    {
+                                                        "name": "TaxType",
+                                                        "type": "select",
+                                                        "label": "Tax type",
+                                                        "options": [],
+                                                        "dynamic": true
+                                                    },
+                                                    {
+                                                        "name": "AccountCode",
+                                                        "type": "select",
+                                                        "label": "Account code",
+                                                        "options": [],
+                                                        "dynamic": true
+                                                    },
+                                                    {
+                                                        "name": "DiscountRate",
+                                                        "type": "number",
+                                                        "label": "Discount rate"
+                                                    },
+                                                    {
+                                                        "name": "Tracking",
+                                                        "spec": [
+                                                            {
+                                                                "name": "TrackingCategory",
+                                                                "type": "select",
+                                                                "label": "Name",
+                                                                "options": {
+                                                                    "store": []
+                                                                },
+                                                                "dynamic": true
+                                                            }
+                                                        ],
+                                                        "type": "array",
+                                                        "label": "Tracking"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "name": "Date",
+                                                "type": "date"
+                                            },
+                                            {
+                                                "name": "DeliveryDate",
+                                                "type": "date",
+                                                "label": "Delivery date"
+                                            },
+                                            {
+                                                "name": "LineAmountTypes",
+                                                "type": "select",
+                                                "label": "Line amount type",
+                                                "validate": {
+                                                    "enum": [
+                                                        "Exclusive",
+                                                        "Inclusive",
+                                                        "NoTax"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "name": "PurchaseOrderNumber",
+                                                "type": "text",
+                                                "label": "Purchase order number"
+                                            },
+                                            {
+                                                "name": "Reference",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "BrandingThemeID",
+                                                "type": "select",
+                                                "label": "Branding Theme"
+                                            },
+                                            {
+                                                "name": "CurrencyCode",
+                                                "type": "select",
+                                                "label": "Currency code"
+                                            },
+                                            {
+                                                "name": "Status",
+                                                "type": "select",
+                                                "validate": {
+                                                    "enum": [
+                                                        "DRAFT",
+                                                        "SUBMITTED",
+                                                        "AUTHORISED",
+                                                        "BILLED"
+                                                    ]
+                                                }
+                                            },
+                                            {
+                                                "name": "SentToContact",
+                                                "type": "boolean",
+                                                "label": "Sent to contact"
+                                            },
+                                            {
+                                                "name": "DeliveryAddress",
+                                                "type": "text",
+                                                "label": "Delivery address"
+                                            },
+                                            {
+                                                "name": "AttentionTo",
+                                                "type": "text",
+                                                "label": "Attention to"
+                                            },
+                                            {
+                                                "name": "Telephone",
+                                                "type": "text"
+                                            },
+                                            {
+                                                "name": "DeliveryInstructions",
+                                                "type": "text",
+                                                "label": "Delivery instructions"
+                                            },
+                                            {
+                                                "name": "ExpectedArrivalDate",
+                                                "type": "date",
+                                                "label": "Expected arrival date"
+                                            }
+                                        ],
+                                        "advanced": true
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "id": 20,
+                            "module": "xero:updatePurchaseOrder",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 516538
+                            },
+                            "filter": {
+                                "name": "PO exists",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{21.PurchaseOrderID}}",
+                                            "b": "",
+                                            "o": "text:notequal:ci"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "tenantId": "df6d5ed8-384b-4e34-ac74-e328df1f6438",
+                                "id": "{{21.PurchaseOrderNumber}}",
+                                "Contact": "{{21.Contact.ContactID}}",
+                                "LineItems": "{{9.array}}",
+                                "LineAmountTypes": "Exclusive",
+                                "BrandingThemeID": "5d4dd402-c851-497e-aae1-9ff265c0d15a",
+                                "CurrencyCode": "GBP",
+                                "Status": "{{33.status}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1926,
+                                    "y": -911
+                                },
+                                "restore": {
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "label": "Xero",
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "xero3"
+                                            }
+                                        }
+                                    },
+                                    "expect": {
+                                        "tenantId": {
+                                            "mode": "chose",
+                                            "label": "A Major Music"
+                                        },
+                                        "id": {
+                                            "mode": "edit"
+                                        },
+                                        "LineItems": {
+                                            "mode": "edit"
+                                        },
+                                        "LineAmountTypes": {
+                                            "mode": "chose",
+                                            "label": "Exclusive"
+                                        },
+                                        "BrandingThemeID": {
+                                            "mode": "chose",
+                                            "label": "Standard"
+                                        },
+                                        "CurrencyCode": {
+                                            "mode": "chose",
+                                            "label": "British Pound (GBP)"
+                                        },
+                                        "Status": {
+                                            "mode": "edit"
+                                        },
+                                        "SentToContact": {
+                                            "mode": "chose"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:xero3",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "tenantId",
+                                        "type": "select",
+                                        "label": "Organization",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "id",
+                                        "type": "select",
+                                        "label": "Purchase Order ID",
+                                        "mode": "edit",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "Contact",
+                                        "type": "uuid",
+                                        "label": "Contact ID"
+                                    },
+                                    {
+                                        "name": "LineItems",
+                                        "type": "array",
+                                        "label": "Line items",
+                                        "spec": [
+                                            {
+                                                "name": "Description",
+                                                "type": "text",
+                                                "label": "Description"
+                                            },
+                                            {
+                                                "name": "Quantity",
+                                                "type": "number",
+                                                "label": "Quantity"
+                                            },
+                                            {
+                                                "name": "UnitAmount",
+                                                "type": "number",
+                                                "label": "Unit Amount"
+                                            },
+                                            {
+                                                "mode": "edit",
+                                                "name": "ItemCode",
+                                                "type": "select",
+                                                "label": "Item",
+                                                "options": [],
+                                                "dynamic": true
+                                            },
+                                            {
+                                                "mode": "edit",
+                                                "name": "TaxType",
+                                                "type": "select",
+                                                "label": "Tax Type",
+                                                "options": [],
+                                                "dynamic": true
+                                            },
+                                            {
+                                                "mode": "edit",
+                                                "name": "AccountCode",
+                                                "type": "select",
+                                                "label": "Account Code",
+                                                "options": [],
+                                                "dynamic": true
+                                            },
+                                            {
+                                                "name": "DiscountRate",
+                                                "type": "number",
+                                                "label": "Discount Rate"
+                                            },
+                                            {
+                                                "name": "Tracking",
+                                                "spec": [
+                                                    {
+                                                        "mode": "edit",
+                                                        "name": "TrackingCategory",
+                                                        "type": "select",
+                                                        "label": "Name",
+                                                        "options": {
+                                                            "store": []
+                                                        },
+                                                        "dynamic": true
+                                                    }
+                                                ],
+                                                "type": "array",
+                                                "label": "Tracking"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "Date",
+                                        "type": "date"
+                                    },
+                                    {
+                                        "name": "DeliveryDate",
+                                        "type": "date",
+                                        "label": "Delivery Date"
+                                    },
+                                    {
+                                        "name": "LineAmountTypes",
+                                        "type": "select",
+                                        "label": "Line Amount Type",
+                                        "validate": {
+                                            "enum": [
+                                                "Exclusive",
+                                                "Inclusive",
+                                                "NoTax"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "PurchaseOrderNumber",
+                                        "type": "text",
+                                        "label": "Purchase Order Number"
+                                    },
+                                    {
+                                        "name": "Reference",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "BrandingThemeID",
+                                        "type": "select",
+                                        "label": "Branding Theme",
+                                        "mode": "edit"
+                                    },
+                                    {
+                                        "name": "CurrencyCode",
+                                        "type": "select",
+                                        "label": "Currency Code",
+                                        "mode": "edit"
+                                    },
+                                    {
+                                        "name": "Status",
+                                        "type": "select",
+                                        "validate": {
+                                            "enum": [
+                                                "DRAFT",
+                                                "SUBMITTED",
+                                                "AUTHORISED",
+                                                "BILLED"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "SentToContact",
+                                        "type": "boolean",
+                                        "label": "Sent to Contact"
+                                    },
+                                    {
+                                        "name": "DeliveryAddress",
+                                        "type": "text",
+                                        "label": "Delivery Address"
+                                    },
+                                    {
+                                        "name": "AttentionTo",
+                                        "type": "text",
+                                        "label": "Attention to"
+                                    },
+                                    {
+                                        "name": "Telephone",
+                                        "type": "text"
+                                    },
+                                    {
+                                        "name": "DeliveryInstructions",
+                                        "type": "text",
+                                        "label": "Delivery Instructions"
+                                    },
+                                    {
+                                        "name": "ExpectedArrivalDate",
+                                        "type": "date",
+                                        "label": "Expected Arrival Date"
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}

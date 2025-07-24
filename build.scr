@@ -1,0 +1,2 @@
+#!/bin/bash
+LIST="ams-common ams-inventory ams-purchasing" bash -c 'for i in $LIST ; do docker build . --build-arg PROJECT=$i -t $i ; done'

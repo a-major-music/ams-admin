@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="/Users/roger/Development/amm-services/apps/inventory/src/mac-calculator.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/packages/amm-doc/src/services/amm-doc-logo.service.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/packages/amm-doc/src/services/amm-doc-list.service.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/inventory/src/product/product.controller.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/purchasing/src/supplier/supplier.controller.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/purchasing/src/purchasing/purchasing.controller.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/purchasing/src/purchasing/purchaseorder-totalsupdate.pipe.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/packages/amm-doc/src/services/amm-doc-title.service.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/packages/common/src/order-processor/order-processor.controller.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/purchasing/src/purchasing/purchasing.service.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/purchasing/src/supplier/supplier.service.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/packages/common/src/order-processor/order-processor.service.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/packages/common/src/next-number/next-number.controller.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/inventory/src/app.controller.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/inventory/module/src/app.controller.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/purchasing/src/app.controller.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/admin/src/App.test.tsx">
+  </file>
+  <file path="/Users/roger/Development/amm-services/packages/common/src/next-number/next-number.service.spec.ts">
+  </file>
+  <file path="/Users/roger/Development/amm-services/packages/common/__tests__/common.test.js">
+  </file>
+  <file path="/Users/roger/Development/amm-services/apps/inventory/module/src/app.controller.spec.js">
+    <testCase name="AppController root should return &quot;Hello World!&quot;" duration="6">
+      <failure message="TypeError: Cannot read properties of undefined (reading &apos;getHello&apos;)"><![CDATA[TypeError: Cannot read properties of undefined (reading 'getHello')
+    at AppController.getHello (/Users/roger/Development/amm-services/apps/inventory/module/src/app.controller.js:16:32)
+    at Object.<anonymous> (/Users/roger/Development/amm-services/apps/inventory/module/src/app.controller.spec.js:17:34)
+    at Promise.then.completed (/Users/roger/.config/yarn/global/node_modules/jest-circus/build/utils.js:390:28)
+    at new Promise (<anonymous>)
+    at callAsyncCircusFn (/Users/roger/.config/yarn/global/node_modules/jest-circus/build/utils.js:315:10)
+    at _callCircusTest (/Users/roger/.config/yarn/global/node_modules/jest-circus/build/run.js:218:40)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at _runTest (/Users/roger/.config/yarn/global/node_modules/jest-circus/build/run.js:155:3)
+    at _runTestsForDescribeBlock (/Users/roger/.config/yarn/global/node_modules/jest-circus/build/run.js:66:9)
+    at _runTestsForDescribeBlock (/Users/roger/.config/yarn/global/node_modules/jest-circus/build/run.js:60:9)]]></failure>
+    </testCase>
+  </file>
+</testExecutions>
