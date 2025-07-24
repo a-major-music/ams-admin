@@ -45,6 +45,7 @@ jobs:
           REACT_APP_AUTH0_CLIENT_ID: ${{ secrets.REACT_APP_AUTH0_CLIENT_ID }}
           REACT_APP_AUTH0_AUDIENCE: ${{ secrets.REACT_APP_AUTH0_AUDIENCE }}
           REACT_APP_AUTH0_SCOPE: ${{ secrets.REACT_APP_AUTH0_SCOPE }}
+          PUBLIC_URL: https://ams-admin-v2.amajormusic.co.uk
 
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v4

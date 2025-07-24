@@ -1,19 +1,25 @@
-import { ProductType } from "@amm/types";
-import axios from "axios";
+// Modern production configuration for the AMM Admin App
+// All services are now consolidated into the common service with Auth0 JWT authentication
 
-export const UPLOAD_URL = "/upload";
-export const INV_API = "https://ams-inventory-prod.amajormusic.co.uk/products/";
-export const LOCS_API = "https://ams-inventory-prod.amajormusic.co.uk/locations/";
-export const STOCKTAKE_API = "https://ams-inventory-prod.amajormusic.co.uk/stocktake/";
-export const PURCHASING_API = "https://ams-purchasing-prod.amajormusic.co.uk/purchasing/";
-export const SUPPLIERS_API = "https://ams-purchasing-prod.amajormusic.co.uk/supplier/";
-export const NEXT_NUMBER_API = "https://ams-common-prod.amajormusic.co.uk/next-number/";
-export const AUDIT_EVENT_API = "https://ams-common-prod.amajormusic.co.uk/audit-event/";
-export const CUSTOM_SALE_API = "https://ams-common-prod.amajormusic.co.uk/custom-sale/";
+const API_BASE_URL = 'https://ams-common-v2.herokuapp.com';
 
+// All API endpoints now point to the consolidated common service
+export const INV_API = `${API_BASE_URL}/products/`;
+export const LOCS_API = `${API_BASE_URL}/locations/`;
+export const STOCKTAKE_API = `${API_BASE_URL}/stocktake/`;
+export const PURCHASING_API = `${API_BASE_URL}/purchasing/`;
+export const SUPPLIERS_API = `${API_BASE_URL}/supplier/`;
+export const NEXT_NUMBER_API = `${API_BASE_URL}/next-number/`;
+export const AUDIT_EVENT_API = `${API_BASE_URL}/audit-event/`;
+export const CUSTOM_SALE_API = `${API_BASE_URL}/custom-sale/`;
+
+// Shopify configuration
 export const SHOPIFY_URL = "https://a-major-music.myshopify.com";
 
-export const NOTIFICATION_TIMEOUT_MS = 3000;
+// App configuration
+export const NOTIFICATION_TIMEOUT_MS = 10000;
+
+// Next number keys
 export const NN_PO_KEY = "po.number";
 export const NN_BOOK_KEY = "sku.book";
 export const NN_ACCESSORY_KEY = "sku.accessory";
@@ -21,18 +27,21 @@ export const NN_GIFT_KEY = "sku.gift";
 export const NN_INSTRUMENT_KEY = "sku.instrument";
 export const NN_OTHER_KEY = "sku.other";
 
+// Product type prefixes
 export const ProductTypePrefix = {
-    [ProductType.BOOK]: "BOK",
-    [ProductType.GIFT]: "GFT",
-    [ProductType.ACCESSORY]: "ACC",
-    [ProductType.INSTRUMENT]: "INS",
-    [ProductType.OTHER]: "OTH",
-  };  
+  Instrument: "I",
+  Book: "B", 
+  Accessory: "A",
+  Gift: "G",
+  Other: "O"
+};
 
-export const MISSING_PRODUCT_IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg"
-
+// Additional constants
+export const MISSING_PRODUCT_IMAGE_URL = "https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg";
 export const VAT_RATE = 20;
 
-// Provide the required api key for axios calls here so it affects them all. This only works because all services use the same key
-export const API_KEY = "YTljODgzOWUtMTAxOS00YzU3LWFlMTktZTdiMDBmZDYzMDhmCg==";
-axios.defaults.headers.common['X-API-KEY'] = API_KEY;
+// Note: API_KEY is deprecated - we now use Auth0 JWT tokens
+// Authentication is handled automatically by the AuthTokenManager component
+
+// Export the base API URL for components that need it
+export const API_BASE_URL_EXPORT = API_BASE_URL;
