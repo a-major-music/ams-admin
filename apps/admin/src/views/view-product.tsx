@@ -14,20 +14,20 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/system";
 import { ReactNode, useContext, useEffect, useState } from "react";
-import ProductVariantTable from "src/components/productvariant-table.component";
+import ProductVariantTable from "../components/productvariant-table.component";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { EditProductRoute, ProductsRoute } from "src/routes";
+import { EditProductRoute, ProductsRoute } from "../routes";
 import _ from "lodash";
 import {
   deleteProduct,
   getProduct,
   updateProduct,
-} from "src/services/product.service";
-import ButtonWithConfirm from "src/components/modal.confirm-dialog.component";
-import GlobalMessageContext from "src/context/globalMessage.context";
-import { getSuppliers } from "src/services/supplier.service";
-import { SHOPIFY_URL } from "src/config";
-import TagChips from "src/components/tag-chips";
+} from "../services/product.service";
+import ButtonWithConfirm from "../components/modal.confirm-dialog.component";
+import GlobalMessageContext from "../context/globalMessage.context";
+import { getSuppliers } from "../services/supplier.service";
+import { SHOPIFY_URL } from "../config";
+import TagChips from "../components/tag-chips";
 
 const ViewProductView = () => {
   const navigate = useNavigate();

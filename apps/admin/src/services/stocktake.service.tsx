@@ -1,5 +1,5 @@
 import axios from "axios";
-import { INV_API, STOCKTAKE_API } from "src/config";
+import { INV_API, STOCKTAKE_API } from "../config";
 
 import { StocktakeLine } from "@amm/types";
 

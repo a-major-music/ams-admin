@@ -23,9 +23,9 @@ import {
   Tooltip,
   Typography,
 } from "@mui/material";
-import { PURCHASING_API } from "src/config";
-import { currencyFormatter, useStickyState } from "src/util";
-import { dataTables } from "src/styles";
+import { PURCHASING_API } from "../config";
+import { currencyFormatter, useStickyState } from "../util";
+import { dataTables } from "../styles";
 
 interface Props {
   data: PurchaseOrder[];

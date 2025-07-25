@@ -16,12 +16,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { currencyFormatter } from "src/util";
+import { currencyFormatter } from "../util";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { MISSING_PRODUCT_IMAGE_URL } from "src/config";
+import { MISSING_PRODUCT_IMAGE_URL } from "../config";
 import ReceivedLineItemTable from "./received-lineitem-table.component";
 import { ViewVariantStockModal } from "./modal.view-variantstock";
-import { dataTables } from "src/styles";
+import { dataTables } from "../styles";
 
 const _ = require("lodash");
 

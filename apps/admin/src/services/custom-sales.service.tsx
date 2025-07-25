@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CUSTOM_SALE_API } from "src/config";
+import { CUSTOM_SALE_API } from "../config";
 
 export const getCustomSales = (success, failure) => {
   axios

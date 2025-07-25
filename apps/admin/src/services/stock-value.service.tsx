@@ -1,6 +1,6 @@
 import axios, { AxiosResponse } from "axios";
-import { INV_API } from "src/config";
-import { shortDateFormatter } from "src/util";
+import { INV_API } from "../config";
+import { shortDateFormatter } from "../util";
 
 export const getStockValue = (date: Date, dataCallback: (stockValue: number) => void, errorCallback: (e: Error) => void) => {
     if (!date) {

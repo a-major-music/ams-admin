@@ -14,20 +14,20 @@ import {
   ProductVariant
 } from "@amm/types";
 
-import PurchaseOrderLineItemTable from "src/components/po-lineitem-table.component";
-import { CreatePOLineItemModal } from "src/components/modal.create-polineitem";
+import PurchaseOrderLineItemTable from "../components/po-lineitem-table.component";
+import { CreatePOLineItemModal } from "../components/modal.create-polineitem";
 import {
   createPurchaseOrder,
   updatePurchaseOrder,
-} from "src/services/purchasing.service";
-import { PurchaseOrdersRoute, ViewPurchaseOrderRoute } from "src/routes";
-import GlobalMessageContext from "src/context/globalMessage.context";
-import { MISSING_PRODUCT_IMAGE_URL, VAT_RATE } from "src/config";
+} from "../services/purchasing.service";
+import { PurchaseOrdersRoute, ViewPurchaseOrderRoute } from "../routes";
+import GlobalMessageContext from "../context/globalMessage.context";
+import { MISSING_PRODUCT_IMAGE_URL, VAT_RATE } from "../config";
 
 import _ from "lodash";
-import { CreatePOSPELineItemModal } from "src/components/modal.create-spelineitem";
-import { POSummary } from "src/components/po-summary.component";
-import { SupplierPicker } from "src/components/supplier-picker.component";
+import { CreatePOSPELineItemModal } from "../components/modal.create-spelineitem";
+import { POSummary } from "../components/po-summary.component";
+import { SupplierPicker } from "../components/supplier-picker.component";
 
 const EditPurchaseOrderView = (props) => {
   const uxMessage = useContext(GlobalMessageContext);

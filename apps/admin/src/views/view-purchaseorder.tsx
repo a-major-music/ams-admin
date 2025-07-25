@@ -28,16 +28,16 @@ import {
   receivePurchaseOrderLines,
   updatePurchaseOrder,
 } from "../services/purchasing.service";
-import PurchaseOrderLineItemTable from "src/components/po-lineitem-table.component";
-import GlobalMessageContext from "src/context/globalMessage.context";
-import StateChip from "src/components/state-chip.component";
-import ButtonWithConfirm from "src/components/modal.confirm-dialog.component";
+import PurchaseOrderLineItemTable from "../components/po-lineitem-table.component";
+import GlobalMessageContext from "../context/globalMessage.context";
+import StateChip from "../components/state-chip.component";
+import ButtonWithConfirm from "../components/modal.confirm-dialog.component";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { EditPurchaseOrderRoute, PurchaseOrdersRoute } from "src/routes";
+import { EditPurchaseOrderRoute, PurchaseOrdersRoute } from "../routes";
 import _ from "lodash";
-import { PURCHASING_API } from "src/config";
-import { getInventoryForVariants, updateVariantStockLevelAndPrices } from "src/services/product.service";
-import { POSummary } from "src/components/po-summary.component";
+import { PURCHASING_API } from "../config";
+import { getInventoryForVariants, updateVariantStockLevelAndPrices } from "../services/product.service";
+import { POSummary } from "../components/po-summary.component";
 
 const ViewPurchaseOrderView = () => {
   const navigate = useNavigate();
