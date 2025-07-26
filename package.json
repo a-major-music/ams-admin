@@ -19,6 +19,7 @@
     "start": "turbo start",
     "start:dev": "turbo start:dev",
     "start:prod": "turbo start:prod",
+    "start:local": "cp apps/admin/src/config.ts.local apps/admin/src/config.ts && concurrently \"cd packages/common && npm run start:dev\" \"cd packages/inventory && npm run start:dev\" \"cd packages/purchasing && npm run start:dev\" \"cd apps/admin && npm run start:dev\"",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -33,6 +34,7 @@
     "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "concurrently": "^8.2.2",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",

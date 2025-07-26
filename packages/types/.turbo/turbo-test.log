@@ -1,0 +1,5 @@
+
+> @amm/types@1.0.1 test
+> echo "Error: no test specified" && exit 0;
+
+Error: no test specified

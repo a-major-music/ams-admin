@@ -1,0 +1,4 @@
+
+> @amm/types@1.0.1 build
+> tsc --build
+

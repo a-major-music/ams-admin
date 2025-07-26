@@ -1,0 +1,601 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GET /products should return an array of products 1`] = `
+Array [
+  Object {
+    "brand": "Test Brand",
+    "description": "Test description - product 1",
+    "filterFields": "size",
+    "id": 5,
+    "location": "A1",
+    "name": "Testing GET products (product 1)",
+    "productType": "Book",
+    "publishedToShopify": false,
+    "shopifyId": null,
+    "supplierGuid": null,
+    "tags": Array [],
+    "taxable": false,
+    "variants": Array [],
+  },
+  Object {
+    "brand": "Test Brand",
+    "description": "Test description - product 2",
+    "filterFields": "size",
+    "id": 6,
+    "location": "A1",
+    "name": "Testing GET products (product 2)",
+    "productType": "Book",
+    "publishedToShopify": false,
+    "shopifyId": null,
+    "supplierGuid": null,
+    "tags": Array [],
+    "taxable": false,
+    "variants": Array [],
+  },
+]
+`;
+
+exports[`GET /products/:guid should return a single product 1`] = `
+Object {
+  "brand": "Test Brand",
+  "description": "Test Description",
+  "filterFields": "size",
+  "id": 4,
+  "location": "A1",
+  "name": "Testing GET single product",
+  "productType": "Instrument",
+  "publishedToShopify": false,
+  "shopifyId": null,
+  "supplierGuid": null,
+  "tags": Array [
+    "instrument",
+    "test",
+  ],
+  "taxable": true,
+  "variants": Array [
+    Object {
+      "barcode": "1234567890123",
+      "boughtInPacks": false,
+      "buyPrice": 1000,
+      "buyable": true,
+      "filterValues": "large",
+      "id": 4,
+      "imageUrls": Array [],
+      "manageStockLevels": true,
+      "movingAverageCost": 500,
+      "notes": "A test variant",
+      "packSize": null,
+      "previousPrice": 2000,
+      "productId": 4,
+      "retailPrice": 1500,
+      "sellable": true,
+      "sku": "INS00001",
+      "stockOnHand": 0,
+      "supplierCode": "SUP101",
+      "weight": 5,
+      "weightUnit": "Kg",
+    },
+  ],
+}
+`;
+
+exports[`GET /products/variants/:sku GET /products?search should return products by partial name, partial sku or barcode 1`] = `
+Array [
+  Object {
+    "brand": "Test Brand",
+    "description": "Test description",
+    "filterFields": "size",
+    "id": 10,
+    "location": "A1",
+    "name": "Testing GET products by variant sku",
+    "productType": "Book",
+    "suppliers": Array [],
+    "tags": Array [],
+    "taxable": false,
+    "variants": Array [
+      Object {
+        "barcode": "1234567890123",
+        "boughtInPacks": false,
+        "buyPrice": 1000,
+        "buyable": true,
+        "filterValues": "large",
+        "id": 8,
+        "imageUrls": Array [],
+        "manageStockLevels": true,
+        "movingAverageCost": 500,
+        "notes": "A test variant",
+        "packSize": null,
+        "previousPrice": 2000,
+        "productId": 10,
+        "retailPrice": 1500,
+        "sellable": true,
+        "sku": "INS00001",
+        "stockOnHand": 0,
+        "supplierCode": "SUP101",
+        "weight": 5,
+        "weightUnit": "Kg",
+      },
+    ],
+  },
+]
+`;
+
+exports[`GET /products/variants/:sku GET /products?search should return products by partial name, partial sku or barcode 2`] = `
+Array [
+  Object {
+    "brand": "Test Brand",
+    "description": "Test description",
+    "filterFields": "size",
+    "id": 10,
+    "location": "A1",
+    "name": "Testing GET products by variant sku",
+    "productType": "Book",
+    "suppliers": Array [],
+    "tags": Array [],
+    "taxable": false,
+    "variants": Array [
+      Object {
+        "barcode": "1234567890123",
+        "boughtInPacks": false,
+        "buyPrice": 1000,
+        "buyable": true,
+        "filterValues": "large",
+        "id": 8,
+        "imageUrls": Array [],
+        "manageStockLevels": true,
+        "movingAverageCost": 500,
+        "notes": "A test variant",
+        "packSize": null,
+        "previousPrice": 2000,
+        "productId": 10,
+        "retailPrice": 1500,
+        "sellable": true,
+        "sku": "INS00001",
+        "stockOnHand": 0,
+        "supplierCode": "SUP101",
+        "weight": 5,
+        "weightUnit": "Kg",
+      },
+    ],
+  },
+]
+`;
+
+exports[`GET /products/variants/:sku GET /products?search should return products by partial name, partial sku or barcode 3`] = `Array []`;
+
+exports[`GET /products/variants/:sku GET /products?search should return products by partial name, partial sku or barcode 4`] = `
+Array [
+  Object {
+    "brand": "Test Brand",
+    "description": "Test description",
+    "filterFields": "size",
+    "id": 10,
+    "location": "A1",
+    "name": "Testing GET products by variant sku",
+    "productType": "Book",
+    "suppliers": Array [],
+    "tags": Array [],
+    "taxable": false,
+    "variants": Array [
+      Object {
+        "barcode": "1234567890123",
+        "boughtInPacks": false,
+        "buyPrice": 1000,
+        "buyable": true,
+        "filterValues": "large",
+        "id": 8,
+        "imageUrls": Array [],
+        "manageStockLevels": true,
+        "movingAverageCost": 500,
+        "notes": "A test variant",
+        "packSize": null,
+        "previousPrice": 2000,
+        "productId": 10,
+        "retailPrice": 1500,
+        "sellable": true,
+        "sku": "INS00001",
+        "stockOnHand": 0,
+        "supplierCode": "SUP101",
+        "weight": 5,
+        "weightUnit": "Kg",
+      },
+    ],
+  },
+]
+`;
+
+exports[`GET /products/variants/:sku should return a product 1`] = `
+Array [
+  Object {
+    "brand": "Test Brand",
+    "description": "Test description",
+    "filterFields": "size",
+    "id": 7,
+    "location": "A1",
+    "name": "Testing GET products by variant sku",
+    "productType": "Book",
+    "publishedToShopify": false,
+    "shopifyId": null,
+    "supplierGuid": null,
+    "tags": Array [],
+    "taxable": false,
+    "variants": Array [
+      Object {
+        "barcode": "1234567890123",
+        "boughtInPacks": false,
+        "buyPrice": 1000,
+        "buyable": true,
+        "filterValues": "large",
+        "id": 5,
+        "imageUrls": Array [],
+        "manageStockLevels": true,
+        "movingAverageCost": 500,
+        "notes": "A test variant",
+        "packSize": null,
+        "previousPrice": 2000,
+        "productId": 7,
+        "retailPrice": 1500,
+        "sellable": true,
+        "sku": "INS00001",
+        "stockOnHand": 0,
+        "supplierCode": "SUP101",
+        "weight": 5,
+        "weightUnit": "Kg",
+      },
+    ],
+  },
+]
+`;
+
+exports[`GET /products/variants/:sku should return a variant 1`] = `
+Object {
+  "barcode": "1234567890123",
+  "boughtInPacks": false,
+  "buyPrice": 1000,
+  "buyable": true,
+  "filterValues": "large",
+  "id": 5,
+  "manageStockLevels": true,
+  "movingAverageCost": 500,
+  "notes": "A test variant",
+  "packSize": null,
+  "previousPrice": 2000,
+  "productId": 7,
+  "retailPrice": 1500,
+  "sellable": true,
+  "sku": "INS00001",
+  "stockOnHand": 0,
+  "supplierCode": "SUP101",
+  "weight": 5,
+  "weightUnit": "Kg",
+}
+`;
+
+exports[`GET /products/variants/:sku should return no products 1`] = `Array []`;
+
+exports[`POST /products/create should create a minimal product 1`] = `
+Object {
+  "brand": null,
+  "description": null,
+  "filterFields": null,
+  "id": 1,
+  "location": "Unknown",
+  "name": "Testing POST single minimal product",
+  "productType": "Instrument",
+  "publishedToShopify": false,
+  "shopifyId": null,
+  "supplierGuid": null,
+  "tags": Array [],
+  "taxable": true,
+  "variants": Array [
+    Object {
+      "barcode": null,
+      "boughtInPacks": false,
+      "buyPrice": 500,
+      "buyable": true,
+      "filterValues": null,
+      "id": 1,
+      "imageUrls": Array [
+        Object {
+          "id": 1,
+          "productVariantId": 1,
+          "uri": "https://cdn.shopify.com/s/files/1/1079/2732/products/musam969056_0.jpg?v=1647272012",
+        },
+      ],
+      "manageStockLevels": true,
+      "movingAverageCost": 500,
+      "notes": null,
+      "packSize": null,
+      "previousPrice": null,
+      "productId": 1,
+      "retailPrice": 1000,
+      "sellable": true,
+      "sku": "INS0001",
+      "stockOnHand": 0,
+      "supplierCode": null,
+      "weight": 1,
+      "weightUnit": "Kg",
+    },
+  ],
+}
+`;
+
+exports[`POST /products/create should create a single, fully populated product 1`] = `
+Object {
+  "brand": "Test Brand",
+  "description": "Test Description",
+  "filterFields": "size",
+  "id": 2,
+  "location": "A1",
+  "name": "Testing POST single product",
+  "productType": "Instrument",
+  "publishedToShopify": false,
+  "shopifyId": null,
+  "supplierGuid": "supplier-fake-guid",
+  "tags": Array [
+    "tag1",
+  ],
+  "taxable": true,
+  "variants": Array [
+    Object {
+      "barcode": "1234567890123",
+      "boughtInPacks": false,
+      "buyPrice": 1000,
+      "buyable": true,
+      "filterValues": "large",
+      "id": 2,
+      "imageUrls": Array [],
+      "manageStockLevels": true,
+      "movingAverageCost": 500,
+      "notes": "A test variant",
+      "packSize": null,
+      "previousPrice": 2000,
+      "productId": 2,
+      "retailPrice": 1500,
+      "sellable": true,
+      "sku": "INS00001",
+      "stockOnHand": 0,
+      "supplierCode": "SUP101",
+      "weight": 5,
+      "weightUnit": "Kg",
+    },
+  ],
+}
+`;
+
+exports[`POST /products/create should create a single, fully populated product 2`] = `
+Object {
+  "rows": 1,
+}
+`;
+
+exports[`PUT /products/:id/update should add a new variant to a product 1`] = `
+Object {
+  "brand": "Test Brand",
+  "description": "Test Description",
+  "filterFields": "size",
+  "id": 3,
+  "location": "A1",
+  "name": "Testing add new variant to product",
+  "productType": "Instrument",
+  "publishedToShopify": false,
+  "shopifyId": "",
+  "supplierGuid": null,
+  "tags": Array [],
+  "taxable": false,
+  "variants": Array [
+    Object {
+      "barcode": "1234567890123",
+      "boughtInPacks": false,
+      "buyPrice": 1000,
+      "buyable": true,
+      "filterValues": "large",
+      "id": 3,
+      "imageUrls": Array [],
+      "manageStockLevels": true,
+      "movingAverageCost": 500,
+      "notes": "A test variant",
+      "packSize": null,
+      "previousPrice": 2000,
+      "productId": 3,
+      "retailPrice": 1500,
+      "sellable": true,
+      "sku": "INS00001",
+      "stockOnHand": 0,
+      "supplierCode": "SUP101",
+      "weight": 5,
+      "weightUnit": "Kg",
+    },
+  ],
+}
+`;
+
+exports[`PUT /products/:id/update should add a tag 1`] = `
+Object {
+  "brand": "Test Brand",
+  "description": "Test Description",
+  "filterFields": "size",
+  "id": 3,
+  "location": "A1",
+  "name": "Testing add new variant to product",
+  "productType": "Instrument",
+  "publishedToShopify": false,
+  "shopifyId": "",
+  "supplierGuid": null,
+  "tags": Array [
+    "tag1",
+  ],
+  "taxable": false,
+  "variants": Array [
+    Object {
+      "barcode": "1234567890123",
+      "boughtInPacks": false,
+      "buyPrice": 1000,
+      "buyable": true,
+      "filterValues": "large",
+      "id": 3,
+      "imageUrls": Array [],
+      "manageStockLevels": true,
+      "movingAverageCost": 500,
+      "notes": "A test variant",
+      "packSize": null,
+      "previousPrice": 2000,
+      "productId": 3,
+      "retailPrice": 1500,
+      "sellable": true,
+      "sku": "INS00001",
+      "stockOnHand": 0,
+      "supplierCode": "SUP101",
+      "weight": 5,
+      "weightUnit": "Kg",
+    },
+  ],
+}
+`;
+
+exports[`PUT /products/:id/update should add another tag 1`] = `
+Object {
+  "brand": "Test Brand",
+  "description": "Test Description",
+  "filterFields": "size",
+  "id": 3,
+  "location": "A1",
+  "name": "Testing add new variant to product",
+  "productType": "Instrument",
+  "publishedToShopify": false,
+  "shopifyId": "",
+  "supplierGuid": null,
+  "tags": Array [
+    "tag1",
+    "tag2",
+  ],
+  "taxable": false,
+  "variants": Array [
+    Object {
+      "barcode": "1234567890123",
+      "boughtInPacks": false,
+      "buyPrice": 1000,
+      "buyable": true,
+      "filterValues": "large",
+      "id": 3,
+      "imageUrls": Array [],
+      "manageStockLevels": true,
+      "movingAverageCost": 500,
+      "notes": "A test variant",
+      "packSize": null,
+      "previousPrice": 2000,
+      "productId": 3,
+      "retailPrice": 1500,
+      "sellable": true,
+      "sku": "INS00001",
+      "stockOnHand": 0,
+      "supplierCode": "SUP101",
+      "weight": 5,
+      "weightUnit": "Kg",
+    },
+  ],
+}
+`;
+
+exports[`PUT /products/:id/update should delete a variant 1`] = `
+Object {
+  "brand": "Test Brand",
+  "description": "Test Description",
+  "filterFields": "size",
+  "id": 3,
+  "location": "A1",
+  "name": "Testing add new variant to product",
+  "productType": "Instrument",
+  "publishedToShopify": false,
+  "shopifyId": "",
+  "supplierGuid": null,
+  "tags": Array [],
+  "taxable": false,
+  "variants": Array [],
+}
+`;
+
+exports[`PUT /products/:id/update should delete all tags 1`] = `
+Object {
+  "brand": "Test Brand",
+  "description": "Test Description",
+  "filterFields": "size",
+  "id": 3,
+  "location": "A1",
+  "name": "Testing add new variant to product",
+  "productType": "Instrument",
+  "publishedToShopify": false,
+  "shopifyId": "",
+  "supplierGuid": null,
+  "tags": Array [],
+  "taxable": false,
+  "variants": Array [
+    Object {
+      "barcode": "1234567890123",
+      "boughtInPacks": false,
+      "buyPrice": 1000,
+      "buyable": true,
+      "filterValues": "large",
+      "id": 3,
+      "imageUrls": Array [],
+      "manageStockLevels": true,
+      "movingAverageCost": 500,
+      "notes": "A test variant",
+      "packSize": null,
+      "previousPrice": 2000,
+      "productId": 3,
+      "retailPrice": 1500,
+      "sellable": true,
+      "sku": "INS00001",
+      "stockOnHand": 0,
+      "supplierCode": "SUP101",
+      "weight": 5,
+      "weightUnit": "Kg",
+    },
+  ],
+}
+`;
+
+exports[`PUT /products/:id/update should update a tag 1`] = `
+Object {
+  "brand": "Test Brand",
+  "description": "Test Description",
+  "filterFields": "size",
+  "id": 3,
+  "location": "A1",
+  "name": "Testing add new variant to product",
+  "productType": "Instrument",
+  "publishedToShopify": false,
+  "shopifyId": "",
+  "supplierGuid": null,
+  "tags": Array [
+    "tag1",
+    "tag3",
+  ],
+  "taxable": false,
+  "variants": Array [
+    Object {
+      "barcode": "1234567890123",
+      "boughtInPacks": false,
+      "buyPrice": 1000,
+      "buyable": true,
+      "filterValues": "large",
+      "id": 3,
+      "imageUrls": Array [],
+      "manageStockLevels": true,
+      "movingAverageCost": 500,
+      "notes": "A test variant",
+      "packSize": null,
+      "previousPrice": 2000,
+      "productId": 3,
+      "retailPrice": 1500,
+      "sellable": true,
+      "sku": "INS00001",
+      "stockOnHand": 0,
+      "supplierCode": "SUP101",
+      "weight": 5,
+      "weightUnit": "Kg",
+    },
+  ],
+}
+`;

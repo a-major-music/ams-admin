@@ -1,16 +1,23 @@
-// This file is used by Nest Config to set up environment variables. This file is the local vesrion. The staged and prod version are named
-// .prd and .stg respectively, and are copied over this one during the build, as defined in the project level .github/workdlows/deploy.yml file.
-import { ProductType } from "@amm/types";
-import axios from "axios";
+// Local configuration for AMM Admin App
+// All microservices run locally on different ports with shared PostgreSQL instance
 
-export const INV_API = "http://localhost:3000/products/";
-export const LOCS_API = "http://localhost:3000/locations/";
-export const STOCKTAKE_API = "http://localhost:3000/stocktake/";
-export const PURCHASING_API = "http://localhost:3001/purchasing/";
-export const SUPPLIERS_API = "http://localhost:3001/supplier/";
-export const NEXT_NUMBER_API = "http://localhost:3002/next-number/";
-export const AUDIT_EVENT_API = "http://localhost:3002/audit-event/";
-export const CUSTOM_SALE_API = "http://localhost:3002/custom-sale/";
+const API_BASE_URL_INVENTORY = 'http://localhost:3000';
+const API_BASE_URL_PURCHASING = 'http://localhost:3001';
+const API_BASE_URL_COMMON = 'http://localhost:3002';
+
+// Inventory Service APIs (port 3000)
+export const INV_API = `${API_BASE_URL_INVENTORY}/products/`;
+export const LOCS_API = `${API_BASE_URL_INVENTORY}/locations/`;
+export const STOCKTAKE_API = `${API_BASE_URL_INVENTORY}/stocktake/`;
+
+// Purchasing Service APIs (port 3001)
+export const PURCHASING_API = `${API_BASE_URL_PURCHASING}/purchasing/`;
+export const SUPPLIERS_API = `${API_BASE_URL_PURCHASING}/supplier/`;
+
+// Common Service APIs (port 3002)
+export const NEXT_NUMBER_API = `${API_BASE_URL_COMMON}/next-number/`;
+export const AUDIT_EVENT_API = `${API_BASE_URL_COMMON}/audit-event/`;
+export const CUSTOM_SALE_API = `${API_BASE_URL_COMMON}/custom-sale/`;
 
 export const SHOPIFY_URL = "https://a-major-music-test.myshopify.com";
 

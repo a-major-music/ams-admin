@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DELETE /stocktake should delete the first stock take only 1`] = `
+Array [
+  Object {
+    "lines": Array [
+      Object {
+        "count": 2,
+        "sku": "INS0002",
+        "stockTakeId": 6,
+      },
+    ],
+    "location": "LOC2",
+  },
+]
+`;
+
+exports[`GET /stocktake should return all stocktakes 1`] = `
+Array [
+  Object {
+    "lines": Array [
+      Object {
+        "count": 1,
+        "sku": "INS0001",
+        "stockTakeId": 2,
+      },
+    ],
+    "location": "LOC1",
+  },
+  Object {
+    "lines": Array [
+      Object {
+        "count": 1,
+        "sku": "INS0002",
+        "stockTakeId": 3,
+      },
+    ],
+    "location": "LOC2",
+  },
+]
+`;
+
+exports[`GET /stocktake should return one stocktake 1`] = `
+Object {
+  "lines": Array [
+    Object {
+      "count": 1,
+      "sku": "INS0002",
+      "stockTakeId": 3,
+    },
+  ],
+  "location": "LOC2",
+}
+`;
+
+exports[`POST /stocktake/save should add new count for INS0002 1`] = `
+Object {
+  "lines": Array [
+    Object {
+      "count": 2,
+      "sku": "INS0001",
+      "stockTakeId": 4,
+    },
+    Object {
+      "count": 2,
+      "sku": "INS0002",
+      "stockTakeId": 4,
+    },
+  ],
+  "location": "LOC1",
+}
+`;
+
+exports[`POST /stocktake/save should add new count for INS0003 1`] = `
+Object {
+  "lines": Array [
+    Object {
+      "count": 2,
+      "sku": "INS0001",
+      "stockTakeId": 4,
+    },
+    Object {
+      "count": 2,
+      "sku": "INS0002",
+      "stockTakeId": 4,
+    },
+    Object {
+      "count": 3,
+      "sku": "INS0003",
+      "stockTakeId": 4,
+    },
+  ],
+  "location": "LOC1",
+}
+`;
+
+exports[`POST /stocktake/save should save a minimal stocktake 1`] = `
+Object {
+  "lines": Array [
+    Object {
+      "count": 1,
+      "sku": "INS0001",
+      "stockTakeId": 1,
+    },
+  ],
+  "location": "TEST",
+}
+`;
+
+exports[`POST /stocktake/save should update count of INS0001 1`] = `
+Object {
+  "lines": Array [
+    Object {
+      "count": 2,
+      "sku": "INS0001",
+      "stockTakeId": 4,
+    },
+  ],
+  "location": "LOC1",
+}
+`;

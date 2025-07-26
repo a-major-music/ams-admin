@@ -1,0 +1,1 @@
+web: yarn workspace @amm/apikey build && yarn workspace @amm/inventory start

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`POST /supplier/create should create a single supplier 1`] = `
+Object {
+  "address": null,
+  "contacts": Array [
+    Object {
+      "email": null,
+      "id": 1,
+      "name": "Testing create supplier (contact)",
+      "phone": null,
+      "supplierId": 4,
+    },
+  ],
+  "id": 4,
+  "name": "Testing create supplier",
+  "website": "https://nowhere.com",
+}
+`;

@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when creating a purchase order should create a new supplier and link the PO 1`] = `
+Object {
+  "id": 4,
+  "issueDate": null,
+  "lineItems": Array [
+    Object {
+      "description": "",
+      "id": 7,
+      "itemCost": 1000,
+      "purchaseOrderId": 4,
+      "quantityOrdered": 10,
+      "receipts": Array [],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00001",
+      "variantSupplierCode": null,
+      "variantTaxRate": 20,
+      "variantUPC": null,
+    },
+  ],
+  "number": "PO0001",
+  "pendingXero": true,
+  "state": "draft",
+  "subTotal": 10000,
+  "supplier": Object {
+    "address": Object {
+      "address1": "Address 1",
+      "address2": null,
+      "address3": null,
+      "city": "City",
+      "id": 1,
+      "postcode": "XXX",
+      "supplierId": 3,
+    },
+    "contacts": Array [
+      Object {
+        "email": null,
+        "id": 1,
+        "name": "Testing create supplier (contact)",
+        "phone": null,
+        "supplierId": 3,
+      },
+    ],
+    "id": 3,
+    "name": "Testing create supplier",
+    "website": "https://nowhere.com",
+  },
+  "supplierId": 3,
+  "taxAmount": 2000,
+  "total": 12000,
+}
+`;

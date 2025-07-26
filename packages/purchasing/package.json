@@ -1,0 +1,73 @@
+{
+  "name": "@amm/purchasing",
+  "version": "1.0.0",
+  "engines": {
+    "node": ">=20.x",
+    "npm": ">=10.0.0"
+  },
+  "description": "Manage Purchase Orders and Suppliers",
+  "main": "main.ts",
+  "private": true,
+  "scripts": {
+    "prebuild": "rimraf dist",
+    "build": "nest build",
+    "clean": "npx prisma db push --force-reset",
+    "prisma:migrate": "npx prisma migrate deploy",
+    "prisma:generate": "npx prisma generate",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "start": "npm run prisma:migrate && npm run prisma:generate && nest start",
+    "start:dev": "npm run prisma:generate && nest start --watch",
+    "start:debug": "npm run prisma:generate && nest start --debug --watch",
+    "start:prod": "npm run prisma:migrate && npm run prisma:generate && node dist/main.js",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "export $(cat .env-e2e | xargs) && npx prisma db push --force-reset && jest --config ./test/jest-e2e.json --detectOpenHandles"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@amm/amm-doc": "file:../amm-doc",
+    "@amm/types": "file:../types",
+    "@nestjs/axios": "^3.0.3",
+    "@nestjs/cli": "^11.0.7",
+    "@nestjs/common": "^11.1.5",
+    "@nestjs/config": "^4.0.2",
+    "@nestjs/core": "^11.1.5",
+    "@nestjs/event-emitter": "^2.0.4",
+    "@nestjs/platform-express": "^11.1.5",
+    "@nestjs/swagger": "^11.2.0",
+    "@prisma/client": "^6.12.0",
+    "@types/jest": "^29.5.5",
+    "pg": "^8.7.3",
+    "ts-jest": "^29.1.1"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".*\\.spec\\.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.(t|j)s"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
+  },
+  "devDependencies": {
+    "@golevelup/ts-jest": "^0.3.2",
+    "@nestjs/testing": "^11.1.5",
+    "@types/node": "^20.0.0",
+    "@types/validator": "^13.6.5",
+    "node-gyp": "^9.0.0",
+    "prisma": "^6.12.0",
+    "supertest": "^6.2.2"
+  }
+}

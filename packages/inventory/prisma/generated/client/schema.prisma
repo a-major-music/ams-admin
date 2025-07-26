@@ -1,0 +1,94 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id                 Int              @id @default(autoincrement())
+  guid               String?          @unique @default(uuid())
+  publishedToShopify Boolean?         @default(false)
+  shopifyId          String?
+  name               String           @unique
+  supplierGuid       String?
+  taxable            Boolean          @default(false)
+  productType        String
+  brand              String?
+  description        String?
+  tags               String[]
+  variants           ProductVariant[]
+  filterFields       String?
+  location           String           @default("Unknown")
+
+  @@index([location])
+}
+
+model ProductVariant {
+  id                Int             @id @default(autoincrement())
+  guid              String?         @unique @default(uuid())
+  imageUrls         URI[]
+  filterValues      String?
+  sku               String          @unique
+  barcode           String?
+  supplierCode      String?
+  weight            Int
+  weightUnit        String
+  manageStockLevels Boolean
+  stockOnHand       Int             @default(0)
+  boughtInPacks     Boolean         @default(false)
+  packSize          Int             @default(1)
+  sellable          Boolean         @default(true)
+  buyable           Boolean         @default(true)
+  retailPrice       Int
+  buyPrice          Int
+  previousPrice     Int?
+  movingAverageCost Int             @default(0)
+  notes             String?
+  Product           Product         @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productId         Int
+  StocktakeLine     StocktakeLine[]
+}
+
+model URI {
+  id               Int            @id @default(autoincrement())
+  guid             String?        @unique @default(uuid())
+  uri              String
+  productVariant   ProductVariant @relation(fields: [productVariantId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productVariantId Int
+}
+
+model Stocktake {
+  id       Int             @id @default(autoincrement())
+  guid     String?         @unique @default(uuid())
+  location String
+  applied  Boolean         @default(false)
+  lines    StocktakeLine[]
+
+  @@unique([location])
+}
+
+model StocktakeLine {
+  id               Int            @id @default(autoincrement())
+  guid             String?        @unique @default(uuid())
+  variant          ProductVariant @relation(fields: [productVariantId], references: [id], onDelete: Cascade)
+  count            Int            @default(0)
+  StockTake        Stocktake?     @relation(fields: [stockTakeId], references: [id], onDelete: Cascade)
+  stockTakeId      Int?
+  productVariantId Int
+
+  @@unique([id, productVariantId])
+}
+
+model StockValue {
+  id       Int      @id @default(autoincrement())
+  guid     String?  @unique @default(uuid())
+  date     DateTime @unique @default(now()) @db.Date
+  netValue Int
+}

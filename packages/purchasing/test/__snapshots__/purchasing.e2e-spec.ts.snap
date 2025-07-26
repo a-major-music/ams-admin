@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`POST /purchasing/{guid}/syncToXero should set pendingXero to false 1`] = `
+Object {
+  "id": 4,
+  "issueDate": null,
+  "lineItems": Array [
+    Object {
+      "description": "variant 1 description",
+      "id": 7,
+      "itemCost": 1000,
+      "purchaseOrderId": 4,
+      "quantityOrdered": 10,
+      "receipts": Array [],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00001",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+    Object {
+      "description": "variant 2 description",
+      "id": 8,
+      "itemCost": 1000,
+      "purchaseOrderId": 4,
+      "quantityOrdered": 10,
+      "receipts": Array [],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00002",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+  ],
+  "number": "PO0001",
+  "pendingXero": true,
+  "state": "draft",
+  "subTotal": 20000,
+  "supplier": Object {
+    "address": null,
+    "contacts": Array [],
+    "id": 3,
+    "name": "Test Supplier 1",
+    "website": null,
+  },
+  "supplierId": 3,
+  "taxAmount": 0,
+  "total": 20000,
+}
+`;
+
+exports[`POST /purchasing/{guid}/syncToXero should set pendingXero to false 2`] = `
+Object {
+  "id": 4,
+  "issueDate": null,
+  "lineItems": Array [
+    Object {
+      "description": "variant 1 description",
+      "id": 7,
+      "itemCost": 1000,
+      "purchaseOrderId": 4,
+      "quantityOrdered": 10,
+      "receipts": Array [],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00001",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+    Object {
+      "description": "variant 2 description",
+      "id": 8,
+      "itemCost": 1000,
+      "purchaseOrderId": 4,
+      "quantityOrdered": 10,
+      "receipts": Array [],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00002",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+  ],
+  "number": "PO0001",
+  "pendingXero": false,
+  "state": "draft",
+  "subTotal": 20000,
+  "supplier": Object {
+    "address": null,
+    "contacts": Array [],
+    "id": 3,
+    "name": "Test Supplier 1",
+    "website": null,
+  },
+  "supplierId": 3,
+  "taxAmount": 0,
+  "total": 20000,
+}
+`;
+
+exports[`POST /purchasing/create should create a single purchaseOrder 1`] = `
+Object {
+  "id": 1,
+  "issueDate": null,
+  "lineItems": Array [
+    Object {
+      "description": "variant 1 description",
+      "id": 1,
+      "itemCost": 1000,
+      "purchaseOrderId": 1,
+      "quantityOrdered": 10,
+      "receipts": Array [],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00001",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+    Object {
+      "description": "variant 2 description",
+      "id": 2,
+      "itemCost": 1000,
+      "purchaseOrderId": 1,
+      "quantityOrdered": 10,
+      "receipts": Array [],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00002",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+  ],
+  "number": "PO0001",
+  "pendingXero": true,
+  "state": "draft",
+  "subTotal": 20000,
+  "supplier": null,
+  "supplierId": null,
+  "taxAmount": 0,
+  "total": 20000,
+}
+`;
+
+exports[`POST /receive should add a receipt to the PO 1`] = `
+Object {
+  "errorMessages": Array [],
+}
+`;
+
+exports[`POST /receive should have restored the PO to before any receipts were added 1`] = `
+Object {
+  "id": 3,
+  "issueDate": null,
+  "lineItems": Array [
+    Object {
+      "description": "variant 1 description",
+      "id": 6,
+      "itemCost": 1000,
+      "purchaseOrderId": 3,
+      "quantityOrdered": 2,
+      "receipts": Array [
+        Object {
+          "id": 1,
+          "purchaseOrderLineItemId": 6,
+          "received": 1,
+          "receivedPrice": 500,
+        },
+      ],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00001",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+  ],
+  "number": "RECEIVETESTPO",
+  "pendingXero": true,
+  "state": "active",
+  "subTotal": 2000,
+  "supplier": null,
+  "supplierId": null,
+  "taxAmount": 0,
+  "total": 2000,
+}
+`;
+
+exports[`POST /receive should have successfully written that PO 1`] = `
+Object {
+  "id": 3,
+  "issueDate": null,
+  "lineItems": Array [
+    Object {
+      "description": "variant 1 description",
+      "id": 6,
+      "itemCost": 1000,
+      "purchaseOrderId": 3,
+      "quantityOrdered": 2,
+      "receipts": Array [],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00001",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+  ],
+  "number": "RECEIVETESTPO",
+  "pendingXero": true,
+  "state": "active",
+  "subTotal": 2000,
+  "supplier": null,
+  "supplierId": null,
+  "taxAmount": 0,
+  "total": 2000,
+}
+`;
+
+exports[`POST /receive should now include the receipt when retrieving the PO 1`] = `
+Object {
+  "id": 3,
+  "issueDate": null,
+  "lineItems": Array [
+    Object {
+      "description": "variant 1 description",
+      "id": 6,
+      "itemCost": 1000,
+      "purchaseOrderId": 3,
+      "quantityOrdered": 2,
+      "receipts": Array [
+        Object {
+          "id": 1,
+          "purchaseOrderLineItemId": 6,
+          "received": 1,
+          "receivedPrice": 500,
+        },
+      ],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00001",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+  ],
+  "number": "RECEIVETESTPO",
+  "pendingXero": true,
+  "state": "active",
+  "subTotal": 2000,
+  "supplier": null,
+  "supplierId": null,
+  "taxAmount": 0,
+  "total": 2000,
+}
+`;
+
+exports[`POST /receive should remove the receipt from the PO 1`] = `
+Object {
+  "id": 1,
+  "purchaseOrderLineItemId": 7,
+  "received": 1,
+  "receivedPrice": 500,
+}
+`;
+
+exports[`PUT /purchasing/{guid}/update should create and update a single purchaseOrder 1`] = `
+Object {
+  "id": 2,
+  "issueDate": null,
+  "lineItems": Array [
+    Object {
+      "description": "variant 3 description",
+      "id": 5,
+      "itemCost": 1000,
+      "purchaseOrderId": 2,
+      "quantityOrdered": 10,
+      "receipts": Array [],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00003",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+    Object {
+      "description": "variant 2 description",
+      "id": 4,
+      "itemCost": 1000,
+      "purchaseOrderId": 2,
+      "quantityOrdered": 5,
+      "receipts": Array [],
+      "variantGuid": null,
+      "variantMediaURI": null,
+      "variantSku": "BOK00002",
+      "variantSupplierCode": null,
+      "variantTaxRate": 0,
+      "variantUPC": null,
+    },
+  ],
+  "number": "PO0001",
+  "pendingXero": true,
+  "state": "active",
+  "subTotal": 20000,
+  "supplier": Object {
+    "address": null,
+    "contacts": Array [],
+    "id": 2,
+    "name": "Test Supplier 2",
+    "website": null,
+  },
+  "supplierId": 2,
+  "taxAmount": 0,
+  "total": 20000,
+}
+`;
